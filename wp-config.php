@@ -1,11 +1,10 @@
 <?php
 $_SERVER['HTTPS'] = 'on';
 
-
-define( 'WP_ALLOW_MULTISITE', true );
+define('WP_ALLOW_MULTISITE', true );
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', 'bryanpackman.com');
+define('DOMAIN_CURRENT_SITE', 'www.bryanpackman.com');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
@@ -27,5 +26,5 @@ define('NONCE_SALT',       $_SERVER['NONCE_SALT']);
 $table_prefix  = 'wp_';
 define('WP_DEBUG', false);
 if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+  define('ABSPATH', dirname(__FILE__) . '/');
 require_once(ABSPATH . 'wp-settings.php');
