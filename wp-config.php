@@ -1,13 +1,16 @@
 <?php
 $_SERVER['HTTPS'] = 'on';
 
-define('WP_ALLOW_MULTISITE', true );
+// https://codex.wordpress.org/Create_A_Network#Allow_Multisite
+define('WP_ALLOW_MULTISITE', true);
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', 'www.bryanpackman.com');
+define('DOMAIN_CURRENT_SITE', 'bryanpackmansites.com');
 define('PATH_CURRENT_SITE', '/');
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
+// https://codex.wordpress.org/WordPress_Multisite_Domain_Mapping
+define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST']);
 
 define('DB_NAME', $_SERVER['RDS_DB_NAME']);
 define('DB_USER', $_SERVER['RDS_USERNAME']);
@@ -23,9 +26,6 @@ define('AUTH_SALT',        $_SERVER['AUTH_SALT']);
 define('SECURE_AUTH_SALT', $_SERVER['SECURE_AUTH_SALT']);
 define('LOGGED_IN_SALT',   $_SERVER['LOGGED_IN_SALT']);
 define('NONCE_SALT',       $_SERVER['NONCE_SALT']);
-
-define('DBI_AWS_ACCESS_KEY_ID', $_SERVER['DBI_AWS_ACCESS_KEY_ID']);
-define('DBI_AWS_SECRET_ACCESS_KEY', $_SERVER['DBI_AWS_SECRET_ACCESS_KEY']);
 
 $table_prefix  = 'wp_';
 define('WP_DEBUG', false);

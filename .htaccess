@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+# https://gist.github.com/wycks/3011895
+# https://gist.github.com/vielhuber/f2c6bdd1ed9024023fe4
+RewriteEngine On
+RewriteBase /
+
+# start specific sites
+RewriteCond %{HTTP_HOST} ^www\.bryanpackmansites.com$ [NC]
+RewriteRule ^ https://bryanpackmansites.com%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^bryanpackman\.com [NC]
+RewriteRule ^(.*)$ https://www.bryanpackman.com/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^oldmanpod\.com [NC]
+RewriteRule ^(.*)$ https://www.oldmanpod.com/$1 [R=301,L]
+# end specific sites
+
+RewriteRule ^index\.php$ - [L]
+
+# add a trailing slash to /wp-admin
+RewriteRule ^wp-admin$ https://%{HTTP_HOST}/wp-admin/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+RewriteRule ^(wp-(content|admin|includes).*) $1 [L]
+RewriteRule ^(.*\.php)$ $1 [L]
+RewriteRule . index.php [L]
+</IfModule>
